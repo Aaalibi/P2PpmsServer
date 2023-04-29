@@ -31,23 +31,19 @@ namespace P2PpmsServer.AsyncHandlers
 
         public async Task Start(IPEndPoint endPoint)
         {
-            while(true)
+            Console.WriteLine("Data Handler started. Server ready.");
+
+            dataProcesser = new DataProcesser(udpConnection, endPoint, mainClass);
+
+            while (true)
             {
                 if (dataQueue.Count > 0)
-                {
-                    dataProcesser = new DataProcesser(udpConnection, endPoint, mainClass);
-                    await dataProcesser.ProcessData(dataQueue[0]);
-                }
+                    await dataProcesser.ProcessData(dataQueue[0], endPoint);
+              
 
                 byte[] data = udpConnection.ReceiveData(ref endPoint);
                 dataQueue.Add(data);
-                Console.WriteLine("Received data from: " + endPoint.ToString() + " with data: " + data.ToString());
-
-                // TODO: finire logica pacchetti
-
-
-                if
-
+                Console.WriteLine("Received data from: " + endPoint.ToString() + " with data: " + Convert.ToInt32(data[0]));
             }
         }
 
