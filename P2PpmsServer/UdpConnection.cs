@@ -36,11 +36,9 @@ namespace P2PpmsServer
 
         }
 
-        public void SendResponse(int response, ref IPEndPoint ipep )
+        public void SendResponse(byte[] response, ref IPEndPoint ipep )
         {
-            byte responseByte = Convert.ToByte(response);
-            byte[] bytesToSend = new byte[] { responseByte }; 
-            udpClient.Send(bytesToSend, ipep);
+            udpClient.Send(response, ipep);
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace P2PpmsServer.Utilities.Enums
 {
-    public enum OutgoingResponse
+    public enum OutgoingResponseHost
     {
-        ERROR = 0,
+        WELCOME = 0,
         OK = 1,
-        WELCOME = 2,
-        MESSAGE = 3,
+        ERROR = 2,
+        IDLE = 3,
 
 
     }

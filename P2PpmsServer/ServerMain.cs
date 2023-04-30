@@ -16,7 +16,7 @@ namespace P2PpmsServer
         UdpConnection udpConnection;
         IPEndPoint endPoint;
         DataHandler dataHandler;
-        // TODO: Scrivere un oggetto Host che richiami la connessione, indirizzo e porta
+        
         public List<Host> hosts = new List<Host>();
         
 
@@ -26,7 +26,7 @@ namespace P2PpmsServer
             var mainClass = new ServerMain();
             Console.WriteLine($"Initializing server with version: {mainClass.version}");
 
-            mainClass.udpConnection = new UdpConnection(IPAddress.Any, 11001);
+            mainClass.udpConnection = new UdpConnection(IPAddress.Any, 11000);
             mainClass.endPoint = mainClass.udpConnection.ep;
 
             Console.WriteLine("Initialized port and endpoint.");
