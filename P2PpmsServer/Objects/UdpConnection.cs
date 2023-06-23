@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P2PpmsServer
+namespace P2PpmsServer.Objects
 {
     public class UdpConnection
     {
@@ -21,7 +21,7 @@ namespace P2PpmsServer
 
         public UdpConnection(IPAddress _ip, int _port)
         {
-            ip  = _ip;
+            ip = _ip;
             port = _port;
 
             udpClient = new UdpClient(port);
@@ -31,12 +31,12 @@ namespace P2PpmsServer
         }
         public byte[] ReceiveData(ref IPEndPoint endPoint)
         {
-            byte[] data =  udpClient.Receive(ref endPoint);
+            byte[] data = udpClient.Receive(ref endPoint);
             return data;
 
         }
 
-        public void SendResponse(byte[] response, ref IPEndPoint ipep )
+        public void SendResponse(byte[] response, ref IPEndPoint ipep)
         {
             udpClient.Send(response, ipep);
         }

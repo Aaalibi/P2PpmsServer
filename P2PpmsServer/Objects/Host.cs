@@ -5,14 +5,14 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P2PpmsServer
+namespace P2PpmsServer.Objects
 {
     public class Host
     {
 
-        public IPEndPoint ep { private set; get; } 
+        public IPEndPoint ep { private set; get; }
 
-        public Host(IPEndPoint _endPoint) 
+        public Host(IPEndPoint _endPoint)
         {
             ep = _endPoint;
         }
